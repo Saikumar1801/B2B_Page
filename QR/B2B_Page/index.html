@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html>
+<head>
+  	<meta charset="utf-8">
+  	<meta name="viewport" content="initial-scale=1, width=device-width">
+  	
+  	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=NanumSquare:wght@300;700;800&display=swap" />
+  	
+    <style>
+        /* --- GLOBAL & BODY STYLES --- */
+        body {
+            margin: 0;
+            line-height: normal;
+            font-family: 'NanumSquare', sans-serif;
+            background-color: #fff;
+        }
+
+        /* --- HEADER STYLES --- */
+        .main-header {
+            position: sticky;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000; /* Ensures header stays on top */
+        }
+
+        .header-top {
+            background-color: #fff;
+            border-bottom: 1px solid #dcdcdc;
+            box-sizing: border-box;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 20px; /* Padding for smaller screens */
+        }
+
+        .header-top-inner {
+            width: 100%;
+            max-width: 1240px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .header-logo .symbol-icon { width: 26.2px; height: 26.2px; }
+        .header-logo .logo-bold { width: 65.5px; height: 22.3px; }
+        .header-logo .symbol-parent { display: flex; align-items: center; gap: 5px; cursor: pointer; }
+
+        .header-nav-main {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 16px;
+            gap: 15px; /* Spacing between nav items */
+        }
+        .header-nav-main .nav-divider { font-weight: 300; color: rgba(0, 0, 0, 0.5); }
+        .header-nav-main .nav-link { font-weight: 800; color: #999; }
+        .header-nav-main .nav-link.active { color: #000; }
+
+        .nav-button {
+            background: none;
+            border: none;
+            padding: 0;
+            margin: 0;
+            font: inherit;
+            color: inherit;
+            cursor: pointer;
+            transition: opacity 0.2s;
+            text-decoration: none; /* Removed underline from links */
+        }
+        .nav-button:hover { opacity: 0.8; }
+        
+        /* --- HERO SECTION CSS --- */
+        .b2b-logo-icon {
+            align-self: stretch;
+            position: relative;
+            max-width: 100%;
+            overflow: hidden;
+            height: 215.9px;
+            flex-shrink: 0;
+            object-fit: cover;
+        }
+        .b2b-logo-wrapper {
+            width: 420px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+            padding: 64px 0px;
+            box-sizing: border-box;
+        }
+        .qr-b2b {
+            position: relative;
+            font-weight: 800;
+        }
+        .text {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-start;
+        }
+        .p {
+            margin: 0;
+        }
+        .qr-100-container {
+            position: relative;
+            font-size: 16px;
+            line-height: 23px;
+        }
+        .text-parent {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+            gap: 17px;position: relative;top: -25px;
+        }
+        .setting-dynamic-clay-icon {
+            width: 30px;
+            position: relative;
+            height: 30px;
+            object-fit: cover;
+            display: none;
+        }
+        .icon-sheild {
+            width: 30px;
+            position: relative;
+            height: 30px;
+            object-fit: cover;
+        }
+        .b2b {
+            position: relative;
+            line-height: 25px;
+        }
+        .text1 {
+            width: 100px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+        }
+        .title {
+            border-radius: 99px;
+            background-color: #000;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            padding: 7px 20px;
+            gap: 10px;
+            cursor: pointer;
+        }
+        .title1 {
+            border-radius: 99px;
+            background-color: #fff;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            padding: 7px 20px;
+            gap: 10px;
+            color: #000;
+            cursor: pointer;
+        }
+        .title-parent {
+            align-self: stretch;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 25px;
+            font-size: 16px;
+            color: #fff;position: relative;top: -25px;
+        }
+        /* Style for the link wrapping the buttons */
+        .cta-button-link {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .frame-div {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+            gap: 30px;
+        }
+        .frame-container {
+            width: 465px;
+            height: 750px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+            padding: 0px 0px 64px;
+            box-sizing: border-box;
+        }
+		.b2b-mainimg-icon {
+		    width: 401px;
+		    height: 456px;
+		    position: relative;
+		    top: -475px;
+		    right: -690px;
+		    object-fit: contain;
+		}
+        .frame-group {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 158px;
+            z-index: 0;
+        }
+        .icon {
+            width: 481px;
+            position: absolute;
+            margin: 0 !important;
+            right: 39px;
+            bottom: 44px;
+            max-height: 100%;
+            object-fit: cover;
+            mix-blend-mode: luminosity;
+            z-index: 1;
+        }
+        .frame-parent {
+            width: 100%;
+            position: relative;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+            border-radius: 0px 0px 0px 500px;
+            background-color: #fae100;
+            height: 750px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+            padding: 0px 207px;
+            box-sizing: border-box;
+            gap: 10px;
+            text-align: left;
+            font-size: 30px;
+            color: #000;
+        }
+
+        /* --- IMAGE SECTIONS CSS --- */
+        /* Section for the first, constrained image */
+        .constrained-image-section {
+            display: flex;
+            justify-content: center;
+            padding: 50px 20px;
+            background-color: #ffffff;
+        }
+        .constrained-image {
+            width: 100%;
+            max-width: 1240px;
+            height: auto;
+            display: block;
+        }
+        /* Section for the second, full-width image */
+        .full-width-image-section {
+            line-height: 0; /* Prevents extra space below the image */
+        }
+        .full-width-image {
+            width: 100%;
+            height: auto;
+            display: block; /* Ensures it takes up the full line */
+        }
+
+        /* --- FOOTER CSS --- */
+        .site-footer {
+            background-color: #fff;
+            width: 100%;
+            font-size: 13px;
+            color: rgba(0, 0, 0, 0.85);
+        }
+        .site-footer-inner {
+            border-top: 1px solid #dcdcdc;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            padding: 0 20px;
+        }
+        .footer-content-wrapper {
+            width: 100%;
+            max-width: 1240px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: space-between;
+            padding: 50px 0px;
+            box-sizing: border-box;
+            gap: 30px;
+        }
+        .footer-left {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .company-info {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .company-info-row {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px 0;
+        }
+        .company-info-row > div {
+            padding: 0 16px;
+            border-right: 1px solid #b9b9b9;
+        }
+        .company-info-row > div:first-child { padding-left: 0; }
+        .company-info-row > div:last-child { border-right: none; }
+        .address { 
+            margin: 0;
+            line-height: 1.5;
+        }
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px 24px;
+        }
+        .footer-right-links {
+            display: flex;
+            gap: 24px;
+            font-size: 15px;
+            color: #222;
+        }
+        .footer-right-links b { cursor: pointer; }
+        .footer-right-links b:hover { opacity: 0.7; }
+
+        /* --- RESPONSIVE ADJUSTMENTS --- */
+        @media (max-width: 1240px) {
+            .frame-parent { padding: 0 40px; }
+            .header-nav-main { display: none; }
+        }
+        @media (max-width: 992px) {
+            .frame-parent { height: auto; padding-bottom: 50px; border-radius: 0; }
+            .frame-group { flex-direction: column; gap: 20px; align-items: center; }
+            .b2b-mainimg-icon { position: static; width: 80%; max-width: 400px; height: auto; }
+            .icon { display: none; }
+            .frame-container { width: 100%; height: auto; padding: 0; align-items: center; text-align: center; }
+            .b2b-logo-wrapper { width: 80%; max-width: 350px; padding: 40px 0; }
+            .text-parent { align-items: center; }
+            .title-parent { justify-content: center; }
+        }
+        @media (min-width: 992px) {
+            .footer-content-wrapper {
+                flex-direction: row;
+                align-items: flex-start;
+            }
+        }
+    </style>
+  	
+</head>
+<body>
+    
+    <!-- HEADER SECTION -->
+    <header class="main-header">
+        <div class="header-top">
+            <div class="header-top-inner">
+                <div class="header-logo">
+                    <div class="symbol-parent">
+                        <img class="symbol-icon" alt="Symbol" src="./B2B_Images/symbol.png">
+                        <img class="logo-bold" alt="Logo" src="./B2B_Images/qr_alliym_name.png">
+                    </div>
+                </div>
+                <nav class="header-nav-main">
+                    <a href="../index.html" class="nav-button"><span class="nav-link">QR알리미란?</span></a>
+                    <div class="nav-divider">|</div>
+                    <a href="../QRUserGuide/index.html" class="nav-button"><span class="nav-link">QR알리미 사용하기</span></a>
+                    <div class="nav-divider">|</div>
+                    <a href="../Community_Page/index2.html" class="nav-button"><span class="nav-link">커뮤니티</span></a>
+                    <div class="nav-divider">|</div>
+                    <a href="./index.html" class="nav-button"><span class="nav-link active">B2B</span></a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+  	<!-- HERO SECTION -->
+  	<div class="frame-parent">
+    		<div class="frame-group">
+      			<div class="frame-container">
+        				<div class="frame-div">
+          					<div class="b2b-logo-wrapper">
+            						<img class="b2b-logo-icon" alt="B2B 로고" src="./B2B_Images/B2B_logo.png">
+          					</div>
+          					<div class="text-parent">
+              							<div class="text">
+                								<div class="qr-b2b">QR알리미 B2B서비스</div>
+              							</div>
+              							<b class="qr-100-container">
+                								<p class="p">임직원과 고객의 개인정보를 소중히 여기는 기업가치를 제공합니다.</p>
+                								<p class="p">안전하고, 간편한 QR알리미로 100% 완벽한 개인정보 보호 솔루션!!</p>
+                								<p class="p">업종별, 기업별로 최적화된 솔루션을 설계해드립니다.</p>
+                								<p class="p">지금 문의주세요!</p>
+              							</b>
+            						</div>
+            						<div class="title-parent">
+                                        <a href="AdminPage.html" class="cta-button-link">
+              							    <div class="title">
+                								<img class="setting-dynamic-clay-icon" alt="" src="setting-dynamic-clay.png">
+                								<img class="setting-dynamic-clay-icon" alt="" src="key-dynamic-clay.png">
+                								<img class="icon-sheild" alt="보안 아이콘" src="./B2B_Images/icon_sheild.png">
+                								<div class="text1">
+                  									<b class="b2b">B2B 로그인</b>
+                								</div>
+              							    </div>
+                                        </a>
+                                        <a href="../Community_Page/index.html#contact-us" class="cta-button-link">
+              							    <div class="title1">
+                								<img class="icon-sheild" alt="메일 아이콘" src="./B2B_Images/icon_mail.png">
+                								<div class="text1">
+                  									<b class="b2b">상담하기</b>
+                								</div>
+              							    </div>
+                                        </a>
+            						</div>
+        				</div>
+        				<img class="b2b-mainimg-icon" alt="B2B 서비스 메인 이미지" src="./B2B_Images/B2B_mainImg.png">
+      			</div>
+      			<img class="icon" alt="" src="./B2B_Images/B2B.png">
+    		</div>
+  	</div>
+  	
+  	<!-- CONSTRAINED IMAGE SECTION -->
+  	<div class="constrained-image-section">
+  		<img class="constrained-image" alt="QR알리미 사용 방법 및 특징" src="./B2B_Images/Frame.png">
+  	</div>
+
+    <!-- FULL-WIDTH IMAGE SECTION (NO GAPS) -->
+    <div class="full-width-image-section">
+  		<img class="full-width-image" alt="QR알리미 도입 사례" src="./B2B_Images/Bottom.png">
+    </div>
+  	
+  	<!-- FOOTER SECTION -->
+    <footer class="site-footer">
+        <div class="site-footer-inner">
+            <div class="footer-content-wrapper">
+                <div class="footer-left">
+                    <div class="company-info">
+                        <div class="company-info-row">
+                            <div>(주)제제컴즈</div>
+                            <div>대표자 : 김준강</div>
+                            <div>사업자등록번호 : 641-88-00828</div>
+                        </div>
+                        <div class="company-info-row">
+                            <div>통신판매업신고 : 제2021-성남수정-1335호</div>
+                        </div>
+                        <p class="address">13449 경기 성남시 수정구 달래내로 46, 성남글로벌융합센터 A동 405호</p>
+                    </div>
+                    <div class="contact-info">
+                        <span>T. 070-4252-5571</span>
+                        <span>E. jejecomms@gmail.com</span>
+                        <span>F. 0508-910-5575</span>
+                    </div>
+                </div>
+                <div class="footer-right-links">
+                    <b>회사소개</b>
+                    <b>이용약관</b>
+                    <b>개인정보처리방침</b>
+                </div>
+            </div>
+        </div>
+    </footer>
+  	
+</body>
+</html>
